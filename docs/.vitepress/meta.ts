@@ -3,7 +3,7 @@
 /* Texts */
 export const vitestName = 'Vitest'
 export const vitestShortName = 'Vitest'
-export const vitestDescription = 'Next generation testing framework powered by Vite'
+export const vitestDescription = '차세대 테스트 프레임워크'
 
 /* CDN fonts and styles */
 export const googleapis = 'https://fonts.googleapis.com'
@@ -11,7 +11,7 @@ export const gstatic = 'https://fonts.gstatic.com'
 export const font = `${googleapis}/css2?family=Readex+Pro:wght@200;400;600&display=swap`
 
 /* vitepress head */
-export const ogUrl = 'https://vitest.dev/'
+export const ogUrl = 'https://ko.vitest.dev/'
 export const ogImage = `${ogUrl}og.png`
 
 /* GitHub and social links */
