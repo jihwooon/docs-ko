@@ -19,18 +19,23 @@ import { transformHead } from './scripts/transformHead'
 import { teamMembers } from './contributors'
 
 export default withPwa(defineConfig({
-  lang: 'en-US',
+  lang: 'ko-KR',
   title: vitestName,
   description: vitestDescription,
   locales: {
     root: {
-      label: 'English',
-      lang: 'en-US',
+      label: '한국어',
+      lang: 'ko-KR',
     },
     zh: {
       label: '简体中文',
       lang: 'zh',
       link: 'https://cn.vitest.dev/',
+    },
+    en: {
+      label: 'English',
+      lang: 'en',
+      link: 'https://vitest.dev/',
     },
   },
   head: [
