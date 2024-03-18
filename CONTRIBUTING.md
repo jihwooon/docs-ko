@@ -1,45 +1,45 @@
-# Vitest Contributing Guide
+# Vitest Contributing 가이드
 
-Hi! We are really excited that you are interested in contributing to Vitest. Before submitting your contribution, please make sure to take a moment and read through the following guide:
+안녕하세요! Vitest에 기여하는 데 관심을 가져주셔서 정말 감사합니다. 번역 기여에 제출하기 전에 잠시 시간을 내어 다음 가이드를 자세히 읽어보시기 바랍니다.
 
 ## Repo Setup
 
-The Vitest repo is a monorepo using pnpm workspaces. The package manager used to install and link dependencies must be [pnpm](https://pnpm.io/).
+Vitest 저장소는 pnpm 작업 공간을 사용하는 단일 저장소입니다. 종속성을 설치하고 연결하는 데 사용되는 패키지 관리자는 [pnpm](https://pnpm.io/)이어야 합니다.
 
-We recommend installing [ni](https://github.com/antfu/ni) to help switching between repos using different package managers. `ni` also provides the handy `nr` command which running npm scripts easier:
+다양한 패키지 관리자를 사용하여 저장소 간에 전환하는 데 도움이 되도록 [ni](https://github.com/antfu/ni)를 설치하는 것이 좋습니다. `ni`는 npm 스크립트를 더 쉽게 실행할 수 있는 편리한 `nr` 명령도 제공합니다.
 
-- `ni` is equivalent to `pnpm install`
-- `nr test` is equivalent to `pnpm run test`
+- `ni`는 `pnpm install`과 동일합니다.
+- `nr 테스트`는 `pnpm 실행 테스트`와 동일합니다.
 
-To develop and test `vitest` package:
+`vitest` 패키지를 개발과 테스트하려면 다음과 같습니다.
 
-1. Run `pnpm install` in `vitest`'s root folder
+1. `vitest`의 루트 폴더에서 `pnpm install`을 실행하세요.
 
-2. Run `pnpm run dev` to build sources in watch mode
+2. watch 모드에서 소스를 빌드하려면 `pnpm run dev`를 실행하세요.
 
-3. Run
-   - `pnpm run test` to run core tests
-   - `pnpm run test:all` to run all the suite
+3. 실행하세요.
+   - 테스트를 실행하는 `pnpm run test`
+   - 모든 테스트를 실행하려면 `pnpm run test:all`
 
-> 💡 If you use VS Code, you can hit `⇧ ⌘ B` or `Ctrl + Shift + B` to launch all the necessary dev tasks.
+> 💡 VS Code를 사용하는 경우 `⇧ ⌘ B` 또는 `Ctrl + Shift + B`를 눌러 필요한 모든 개발 작업을 시작할 수 있습니다.
 
-## Debugging
+## 디버깅
 
 ### VS Code
 
-If you want to use break point and explore code execution you can use the ["Run and debug"](https://code.visualstudio.com/docs/editor/debugging) feature from vscode.
+중단점을 사용하고 코드 실행을 탐색하려면 vscode의 ["실행 및 디버그"](https://code.visualstudio.com/docs/editor/debugging) 기능을 사용할 수 있습니다.
 
-1. Add a `debugger` statement where you want to stop the code execution.
+1. 코드 실행을 중지하려는 곳에 'debugger' 문을 추가하세요.
 
-2. Click on the "Run and Debug" icon in the activity bar of the editor.
+2. 편집기의 활동 표시줄에서 "실행 및 디버그" 아이콘을 클릭하세요.
 
-3. Click on the "Javascript Debug Terminal" button.
+3. "Javascript debugger terminal" 버튼을 클릭하세요.
 
-4. It will open a terminal, then type the test command: `pnpm run test`
+4. 터미널이 열리고 테스트 명령인 `pnpm run test`를 입력합니다.
 
-5. The execution will stop and you'll use the [Debug toolbar](https://code.visualstudio.com/docs/editor/debugging#_debug-actions) to continue, step over, restart the process...
+5. 실행이 중지되고 [디버그 도구 모음](https://code.visualstudio.com/docs/editor/debugging#_debug-actions)을 사용하여 계속 진행하고, 한 단계 더 진행하고, 프로세스를 다시 시작합니다.
 
-## Testing Vitest against external packages
+## 외부 패키지에 대한 Vitest 테스트
 
 You may wish to test your locally-modified copy of Vitest against another package that is using it. For pnpm, after building Vitest, you can use [`pnpm.overrides`](https://pnpm.io/package_json#pnpmoverrides). Please note that `pnpm.overrides` must be specified in the root `package.json` and you must first list the package as a dependency in the root `package.json`:
 
@@ -56,42 +56,42 @@ You may wish to test your locally-modified copy of Vitest against another packag
 }
 ```
 
-And re-run `pnpm install` to link the package.
+그리고 `pnpm install`을 다시 실행하여 패키지를 연결하세요.
 
-Add a `.npmrc` file with following line next to the `package.json`:
+`package.json` 옆에 다음 줄을 사용하여 `.npmrc` 파일을 추가합니다.
 
 ```sh
 VITE_NODE_DEPS_MODULE_DIRECTORIES=/node_modules/,/packages/
 ```
 
-## Pull Request Guidelines
+## Pull Request 가이드라인
 
-- Checkout a topic branch from a base branch, e.g. `main`, and merge back against that branch.
+- 기본 브랜치에서 토픽 브랜치를 체크아웃하세요. `main`을 선택하고 해당 브랜치에 대해 다시 병합합니다.
 
-- If adding a new feature:
+- 새로운 기능을 추가하는 경우
 
-  - Add accompanying test case.
-  - Provide a convincing reason to add this feature. Ideally, you should open a suggestion issue first and have it approved before working on it.
+  - 함께 제공되는 테스트 케이스를 추가합니다.
+  - 이 기능을 추가해야 하는 근거 있는 이유를 제공해주세요. issue 먼저 열고 작업하기 전에 approval 받아야 합니다.
 
-- If fixing bug:
+- 버그를 수정하는 경우
 
-  - If you are resolving a special issue, add `(fix #xxxx[,#xxxx])` (#xxxx is the issue id) in your PR title for a better release log, e.g. `fix: update entities encoding/decoding (fix #3899)`.
-  - Provide a detailed description of the bug in the PR. Live demo preferred.
-  - Add appropriate test coverage if applicable.
+  - 특별한 문제를 해결하는 경우 더 나은 릴리스 로그를 위해 PR 제목에 `(fix #xxxx[,#xxxx])`(#xxxx is the issue id)를 추가하세요. `fix: update entities encoding/decoding (fix #3899)`.
+  - PR에 버그에 대한 자세한 설명을 제공하세요. Live demo 선호합니다.
+  - 해당되는 경우 적절한 테스트 범위를 추가하십시오.
 
-- It's OK to have multiple small commits as you work on the PR - GitHub can automatically squash them before merging.
+- PR 작업을 하면서 여러 개의 작은 커밋을 갖는 것은 괜찮습니다. GitHub 병합하기 전에 자동으로 커밋을 스쿼시할 수 있습니다.
 
-- Make sure tests pass!
+- 테스트를 통과하는지 확인하세요!
 
-- Commit messages must follow the [commit message convention](./.github/commit-convention.md) so that changelogs can be automatically generated.
+- 커밋 메시지는 [커밋 메시지 규칙](./.github/commit-convention.md)을 따라야 변경 로그가 자동으로 생성될 수 있습니다.
 
-- Use `pnpm run lint:fix` to format files according to the project guidelines.
+- 프로젝트 지침에 따라 파일 형식을 지정하려면 `pnpm run lint:fix`를 사용하세요.
 
-## Maintenance Guidelines
+## Maintenance 가이드라인
 
-> The following section is mostly for maintainers who have commit access, but it's helpful to go through if you intend to make non-trivial contributions to the codebase.
+> 다음 섹션은 주로 커밋 액세스 권한이 있는 관리자를 위한 것이지만 코드베이스에 적지 않은 기여를 하려는 경우 진행하는 것이 도움이 됩니다.
 
-### Issue Triaging Workflow
+### 문제 분류 작업흐름
 
 ```mermaid
 flowchart TD
@@ -115,7 +115,7 @@ flowchart TD
     workarounds --NO--> p3[p3: minor bug]
 ```
 
-### Pull Request Review Workflow
+### Pull Request 리뷰 작업흐름
 
 ```mermaid
 flowchart TD
@@ -131,29 +131,28 @@ flowchart TD
     approve --> merge["Merge if approved by 2 or\nmore team members\n- Use 'Squash and Merge'\n- Edit commit message to follow\nconvention\n- In commit message body, list\nrelevant issues being fixed\ne.g. 'fix #1234, fix #1235'"]
 ```
 
-## Notes on Dependencies
+## 종속성에 대한 참고 사항
 
-Vitest aims to be lightweight, and this includes being aware of the number of npm dependencies and their size.
+Vitest는 경량화를 목표로 하며 여기에는 npm 종속성 수와 크기를 인식하는 것이 포함됩니다.
 
-### Think before adding a dependency
+### 종속성을 추가하기 전에 생각해봅니다.
 
-Most deps should be added to `devDependencies` even if they are needed at runtime. Some exceptions are:
+런타임에 필요한 경우에도 대부분의 deps는 `devDependency`에 추가되어야 합니다. 일부 예외는 다음과 같습니다.
 
-- Type packages. Example: `@types/*`.
-- Deps that cannot be properly bundled due to binary files.
-- Deps that ships its own types and its type is used in vitest's own public types.
+- 패키지를 입력하세요. 예: `@types/*`.
+- 바이너리 파일로 인해 제대로 번들링할 수 없는 Dep입니다.
+- 내부에서만 사용되는 자체 유형과 Vitest가 제공하는 의존성 유형을 제공하는 Deps는 vitest의 자체 공개 유형에서 사용됩니다.
 
 Avoid deps that has large transitive dependencies that results in bloated size compared to the functionality it provides.
 
-If there are libraries that are needed and don't comply with our size
-requirements, a fork can be tried to reduce its size while we work with them to
-upstream our changes (see [tinypool](https://github.com/tinylibs/tinypool) for example)
+필요한 라이브러리가 요구사항 규격 사이즈에 맞지 않는다면, 포크로 작업하는 동안 포크의 크기를 줄이려고 시도할 수 있습니다.
+변경사항 업스트림 예를 들어 [tinypool](https://github.com/tinylibs/tinypool) 참조
 
-### Think before adding yet another option
+### 또 다른 옵션을 추가하기 전에 생각해 볼 수 있습니다.
 
-We already have many config options, and we should avoid fixing an issue by adding yet another one. Before adding an option, try to think about:
+이미 많은 구성 옵션이 있으므로 다른 옵션을 추가하여 문제를 해결하는 것을 피해야 합니다. 옵션을 추가하기 전에 다음 사항을 생각해 봅니다.
 
-- Whether the problem is really worth addressing
-- Whether the problem can be fixed with a smarter default
-- Whether the problem has workaround using existing options
-- Whether the problem can be addressed with a plugin instead
+- 문제가 실제로 해결할 가치가 있는지 여부
+- 스마트한 기본값으로 문제를 해결할 수 있는지 여부
+- 기존 옵션을 사용하여 문제를 해결할 수 있는지 여부
+- 플러그인을 대신 사용하여 문제를 해결할 수 있는지 여부
