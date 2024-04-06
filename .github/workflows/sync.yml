@@ -1,4 +1,4 @@
-name: ryu-cho
+name: Sync
 
 on:
   schedule:
@@ -16,7 +16,7 @@ jobs:
           email: "action@github.com"
 
           # TODO: Replace this with your own repo URL
-          upstream-repo: https://github.com/elonehoo/vitest-docs-template.git
+          upstream-repo: https://github.com/jihwooon/docs-ko.git
           # TODO: Replace this with your own repo's branch name
           upstream-repo-branch: main
 
