@@ -9,7 +9,7 @@ import { sponsors } from '../sponsors'
       <main class="main">
         <VPHomeSponsors
           v-if="sponsors"
-          message="Vitest is free and open source, made possible by wonderful sponsors."
+          message="Vitest는 무료 오픈 소스이며, 훌륭한 스폰서들이 후원하고 있습니다."
           :data="sponsors"
         />
         <div class="action">

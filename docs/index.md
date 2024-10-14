@@ -14,16 +14,16 @@ hero:
     alt: Vitest
   actions:
     - theme: brand
-      text: Get Started
+      text: 시작하기
       link: /guide/
     - theme: alt
-      text: Features
+      text: 지원하는 기능들
       link: /guide/features
     - theme: alt
-      text: Why Vitest?
+      text: Vitest를 사용해야 하는 이유?
       link: /guide/why
     - theme: alt
-      text: View on GitHub
+      text: GitHub
       link: https://github.com/vitest-dev/vitest
 
 features:
