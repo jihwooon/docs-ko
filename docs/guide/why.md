@@ -1,25 +1,25 @@
 ---
-title: Why Vitest | Guide
+title: Vitest를 사용해야 하는 이유? | 가이드
 ---
 
-# Why Vitest
+# Vitest를 사용해야 하는 이유?
 
 :::tip NOTE
-This guide assumes that you are familiar with Vite. A good way to start learning more is to read the [Why Vite Guide](https://vitejs.dev/guide/why.html), and [Next generation frontend tooling with ViteJS](https://www.youtube.com/watch?v=UJypSr8IhKY), a stream where [Evan You](https://twitter.com/youyuxi) did a demo explaining the main concepts.
+이 가이드는 사용자가 Vite에 익숙하다고 가정합니다.
+Vite 배우는데 시작하기 좋은 방법은 [Why Vite](https://vitejs.dev/guide/why.html)와 [Next generation frontend tooling with ViteJS](https://www.youtube.com/watch?v=UJypSr8IhKY) 가이드를 읽습니다. 혹은 [Evan You](https://twitter.com/youyuxi)가 주요 개념을 설명하는 데모 영상을 시청합니다.
 :::
 
-## The Need for a Vite Native Test Runner
+## Vite 네이티브 테스트 러너의 필요성
 
-Vite's out-of-the-box support for common web patterns, features like glob imports and SSR primitives, and its many plugins and integrations are fostering a vibrant ecosystem. Its dev and build story are key to its success. For docs, there are several SSG-based alternatives powered by Vite. Vite's Unit Testing story hasn't been clear though. Existing options like [Jest](https://jestjs.io/) were created in a different context. There is a lot of duplication between Jest and Vite, forcing users to configure two different pipelines.
+Vite는 일반적인 웹 개발 패턴을 별도로 설치없이 즉시 지원하고, 글로브 임포트와 SSR 프리미티브 같은 기능을 제공하며, 다양한 플러그인과 통합을 지원하는 점이 활발한 생태계를 조성하고 있습니다. Vite의 개발 및 빌드 경험이 그 성공의 핵심입니다. 문서화 측면에서는 Vite를 기반으로 한 여러 SSG 대안이 있습니다. 그러나 Vite의 단위 테스팅 관련 상황은 아직 명확하지 않습니다. Jest와 같은 기존 옵션들은 다른 맥락에서 만들어졌습니다. [Jest](https://jestjs.io/)와 Vite 사이에 중복되는 부분이 많아 사용자들이 두 개의 서로 다른 파이프라인을 설정해야 하는 문제가 있습니다.  
 
-Using Vite dev server to transform your files during testing, enables the creation of a simple runner that doesn't need to deal with the complexity of transforming source files and can solely focus on providing the best DX during testing. A test runner that uses the same configuration of your App (through `vite.config.js`), sharing a common transformation pipeline during dev, build, and test time. That is extensible with the same plugin API that lets you and the maintainers of your tools provide first-class integration with Vite. A tool that is built with Vite in mind from the start, taking advantage of its improvements in DX, like its instant Hot Module Reload (HMR). This is Vitest, a next generation testing framework powered by Vite.
+테스팅 중 파일 변환을 위해 Vite 개발 서버를 사용하면, 소스 파일 변환의 복잡성을 다룰 필요 없이 테스팅 중 최상의 개발자 경험(DX)을 제공하는 데 집중할 수 있는 간단한 러너를 만들 수 있습니다. 이 테스트 러너는 앱과 동일한 설정(`vite.config.js`를 통해)을 사용하며, 개발, 빌드, 테스트 시 공통된 변환 파이프라인을 공유합니다. 또한 Vite와의 최고 수준의 통합을 제공할 수 있는 동일한 플러그인 API로 확장 가능합니다. 이는 처음부터 Vite를 염두에 두고 만들어진 도구로, 즉각적인 핫 모듈 리로드(HMR)와 같은 Vite의 개선된 개발자 경험을 활용합니다. 이것이 바로 Vite를 기반으로 한 차세대 테스트 프레임워크인 Vitest입니다.  
 
-Given Jest's massive adoption, Vitest provides a compatible API that allows you to use it as a drop-in replacement in most projects. It also includes the most common features required when setting up your unit tests (mocking, snapshots, coverage). Vitest cares a lot about performance and uses Worker threads to run as much as possible in parallel. Some ports have seen test running an order of magnitude faster. Watch mode is enabled by default, aligning itself with the way Vite pushes for a dev first experience. Even with all these improvements in DX, Vitest stays lightweight by carefully choosing its dependencies (or directly inlining needed pieces).
+Jest의 광범위한 채택을 고려하여, Vitest는 대부분의 프로젝트에서 즉시 대체할 수 있는 호환 API를 제공합니다. 또한 단위 테스트 설정 시 필요한 가장 일반적인 기능들(모킹, 스냅샷, 커버리지)을 포함하고 있습니다. Vitest는 성능을 매우 중요하게 여기며, 워커 스레드를 사용하여 가능한 한 많은 작업을 병렬로 실행합니다. 일부 포팅된 프로젝트에서는 테스트 실행 속도가 10배 이상 빨라진 것으로 나타났습니다. Vite가 개발 우선 경험을 강조하는 방식에 맞춰, 감시 모드가 기본적으로 활성화되어 있습니다. 이러한 모든 개발자 경험(DX) 개선에도 불구하고, Vitest는 의존성을 신중하게 선택하거나 필요한 부분을 직접 인라인화하여 경량성을 유지합니다.  
 
-**Vitest aims to position itself as the Test Runner of choice for Vite projects, and as a solid alternative even for projects not using Vite.**
+**Vitest는 Vite 프로젝트의 테스트 러너로 자리 잡는 것은 물론, Vite 외의 프로젝트에서도 확실한 대안이 되는 것을 목표로 합니다.**
 
-Continue reading in the [Getting Started Guide](./index)
+[가이드 시작하기](./index)를 계속해서 읽어보세요.
 
-## How is Vitest Different from X?
-
-You can check out the [Comparisons](./comparisons) section for more details on how Vitest differs from other similar tools.
+## Vitest는 유사한 도구와 어떻게 다른가요?
+Vitest가 다른 유사한 도구와 어떻게 다른지 자세히 알아보려면 [비교](./comparisons) 섹션을 통해 확인할 수 있습니다.
